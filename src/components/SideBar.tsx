@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { Button } from "./Button";
 
 interface SideBarProps {
@@ -25,7 +26,7 @@ export function SideBar({
             key={String(genre.id)}
             title={genre.title}
             iconName={genre.name}
-            onClick={() => buttonClickCallback(genre.id)}
+            onClick={useCallback(() => buttonClickCallback(genre.id), [])}
             selected={selectedGenreId === genre.id}
           />
         ))}
